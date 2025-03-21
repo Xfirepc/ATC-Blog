@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 /**
@@ -24,7 +23,7 @@ class CategoryController extends BaseController
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::withCount('posts')->paginate(10);
         return $this->sendResponse($categories, 'Categorías obtenidas con éxito');
     }
 
@@ -32,10 +31,10 @@ class CategoryController extends BaseController
      * Crear una nueva categoría
      *
      * Crea una nueva categoría en el sistema.
-     * Requiere autenticación y permisos de administrador.
+     * Requiere autenticación.
      *
      * @bodyParam name string required Nombre de la categoría. Example: Tecnología
-     * @bodyParam description string Descripción de la categoría. Example: Artículos sobre tecnología y programación
+     * @bodyParam description string Descripción de la categoría. Example: Artículos sobre tecnología
      * @return JsonResponse
      */
     public function store(Request $request)
@@ -45,12 +44,7 @@ class CategoryController extends BaseController
             'description' => 'nullable|string'
         ]);
 
-        $category = Category::create([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'description' => $request->description
-        ]);
-
+        $category = Category::create($request->all());
         return $this->sendResponse($category, 'Categoría creada con éxito');
     }
 
@@ -64,18 +58,18 @@ class CategoryController extends BaseController
      */
     public function show(Category $category)
     {
-        return $this->sendResponse($category, 'Categoría obtenida con éxito');
+        return $this->sendResponse($category->loadCount('posts'), 'Categoría obtenida con éxito');
     }
 
     /**
      * Actualizar una categoría
      *
      * Actualiza los datos de una categoría existente.
-     * Requiere autenticación y permisos de administrador.
+     * Requiere autenticación.
      *
      * @urlParam id required El ID de la categoría. Example: 1
-     * @bodyParam name string Nombre de la categoría. Example: Tecnología Moderna
-     * @bodyParam description string Descripción de la categoría. Example: Artículos actualizados sobre tecnología
+     * @bodyParam name string Nombre de la categoría. Example: Tecnología Actualizada
+     * @bodyParam description string Descripción de la categoría. Example: Nueva descripción
      * @return JsonResponse
      */
     public function update(Request $request, Category $category)
@@ -85,12 +79,7 @@ class CategoryController extends BaseController
             'description' => 'nullable|string'
         ]);
 
-        $category->update([
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'description' => $request->description
-        ]);
-
+        $category->update($request->all());
         return $this->sendResponse($category, 'Categoría actualizada con éxito');
     }
 
@@ -98,7 +87,7 @@ class CategoryController extends BaseController
      * Eliminar una categoría
      *
      * Elimina una categoría específica del sistema.
-     * Requiere autenticación y permisos de administrador.
+     * Requiere autenticación.
      *
      * @urlParam id required El ID de la categoría. Example: 1
      * @return JsonResponse
@@ -110,7 +99,7 @@ class CategoryController extends BaseController
     }
 
     /**
-     * Obtener posts por categoría
+     * Obtener posts de una categoría
      *
      * Obtiene todos los posts asociados a una categoría específica.
      *
@@ -120,7 +109,7 @@ class CategoryController extends BaseController
      */
     public function posts(Category $category)
     {
-        $posts = $category->posts()->with('user')->paginate(10);
+        $posts = $category->posts()->with(['user', 'comments'])->paginate(10);
         return $this->sendResponse($posts, 'Posts de la categoría obtenidos con éxito');
     }
 }
