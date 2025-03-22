@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto">
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="text-center mb-8">
@@ -82,13 +82,14 @@ export default {
   async created() {
     try {
       const response = await this.$store.dispatch('categories/fetchCategories');
-      this.categories = response;
+      this.categories = response.data;
     } catch (error) {
       this.error = 'Error al cargar las categorías';
     }
   },
   methods: {
     async handleSubmit() {
+      console.log('llamando a createPost');
       this.loading = true;
       this.error = null;
       

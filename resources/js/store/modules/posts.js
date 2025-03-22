@@ -28,10 +28,12 @@ const actions = {
     commit('SET_ERROR', null);
     try {
       const response = await axios.get('/posts');
-      commit('SET_POSTS', response.data.data);
-      return response.data.data;
+      const posts = response.data?.data || [];
+      commit('SET_POSTS', posts);
+      return posts;
     } catch (error) {
       commit('SET_ERROR', error.response?.data?.message || 'Error al cargar los posts');
+      commit('SET_POSTS', []);
       throw error;
     } finally {
       commit('SET_LOADING', false);
@@ -43,10 +45,12 @@ const actions = {
     commit('SET_ERROR', null);
     try {
       const response = await axios.get(`/posts/${id}`);
-      commit('SET_CURRENT_POST', response.data.data);
-      return response.data.data;
+      const post = response.data?.data;
+      commit('SET_CURRENT_POST', post);
+      return post;
     } catch (error) {
       commit('SET_ERROR', error.response?.data?.message || 'Error al cargar el post');
+      commit('SET_CURRENT_POST', null);
       throw error;
     } finally {
       commit('SET_LOADING', false);
@@ -58,8 +62,9 @@ const actions = {
     commit('SET_ERROR', null);
     try {
       const response = await axios.post('/posts', postData);
+      const post = response.data?.data;
       await dispatch('fetchPosts');
-      return response.data.data;
+      return post;
     } catch (error) {
       commit('SET_ERROR', error.response?.data?.message || 'Error al crear el post');
       throw error;
@@ -73,8 +78,9 @@ const actions = {
     commit('SET_ERROR', null);
     try {
       const response = await axios.put(`/posts/${id}`, data);
+      const post = response.data?.data;
       await dispatch('fetchPosts');
-      return response.data.data;
+      return post;
     } catch (error) {
       commit('SET_ERROR', error.response?.data?.message || 'Error al actualizar el post');
       throw error;
@@ -91,6 +97,23 @@ const actions = {
       await dispatch('fetchPosts');
     } catch (error) {
       commit('SET_ERROR', error.response?.data?.message || 'Error al eliminar el post');
+      throw error;
+    } finally {
+      commit('SET_LOADING', false);
+    }
+  },
+
+  async fetchPostsByCategory({ commit }, categoryId) {
+    commit('SET_LOADING', true);
+    commit('SET_ERROR', null);
+    try {
+      const response = await axios.get(`/categories/${categoryId}/posts`);
+      const posts = response.data?.data.data || [];
+      commit('SET_POSTS', posts);
+      return posts;
+    } catch (error) {
+      commit('SET_ERROR', error.response?.data?.message || 'Error al cargar los posts de la categoría');
+      commit('SET_POSTS', []);
       throw error;
     } finally {
       commit('SET_LOADING', false);

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto">
       <div class="bg-white rounded-lg shadow-lg p-8">
         <div class="text-center mb-8">
@@ -96,7 +96,7 @@ export default {
       };
       
       const response = await this.$store.dispatch('categories/fetchCategories');
-      this.categories = response;
+      this.categories = response.data;
     } catch (error) {
       this.error = 'Error al cargar el post o las categorías';
     }

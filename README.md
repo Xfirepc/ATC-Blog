@@ -1,66 +1,184 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Blog Laravel + Vue.js
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[Ver Repositorio en GitHub](https://github.com/Xfirepc/ATC-Blog)
 
-## About Laravel
+Este es un proyecto de blog desarrollado con Laravel y Vue.js 2, que incluye funcionalidades como gestión de posts, categorías, comentarios y autenticación de usuarios.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Habilidades Técnicas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Arquitectura y Patrones de Diseño
+- **Arquitectura de Microservicios**
+  - API RESTful con Laravel
+  - Frontend desacoplado con Vue.js 2
+  - Comunicación cliente-servidor mediante Axios
+  - Manejo de estados con Vuex
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Patrones de Diseño Implementados**
+  - Repository Pattern para abstracción de datos
+  - Service Layer para lógica de negocio
+  - Factory Pattern en seeders y tests
+  - Observer Pattern para eventos del sistema
+  - Module Pattern en la organización de Vuex
 
-## Learning Laravel
+### Backend Development
+- **API RESTful Avanzada**
+  - Recursos API transformados
+  - Paginación y filtrado
+  - Manejo de relaciones complejas
+  - Validación de datos robusta
+  - Middleware personalizado
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Base de Datos**
+  - Migraciones estructuradas
+  - Relaciones eloquent complejas
+  - Seeders para datos de prueba
+  - Optimización de consultas
+  - Transacciones y consistencia
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Seguridad**
+  - Autenticación con Sanctum
+  - Protección CSRF
+  - Validación de entrada
+  - Manejo de sesiones seguro
+  - Rate limiting
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Frontend Development (Vue.js 2)
+- **Gestión de Estado**
+  - Vuex modular
+  - Actions asíncronas
+  - Getters computados
+  - Mutations controladas
+  - Estado persistente
 
-## Laravel Sponsors
+- **Componentes Avanzados**
+  - Componentes reutilizables con Options API
+  - Props validadas
+  - Eventos personalizados
+  - Slots y scoped slots
+  - Mixins para lógica reutilizable
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Optimización Frontend**
+  - Lazy loading de componentes
+  - Caching de datos
+  - Manejo de assets con Vite
+  - Optimización de imágenes
+  - Code splitting
 
-### Premium Partners
+### UI/UX Design
+- **Diseño Responsive**
+  - Mobile-first approach
+  - Grid system personalizado
+  - Breakpoints estratégicos
+  - Flexbox layouts
+  - CSS Grid
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- **Experiencia de Usuario**
+  - Feedback visual inmediato
+  - Estados de carga optimizados
+  - Mensajes de error intuitivos
+  - Animaciones suaves
+  - Navegación fluida
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Requisitos Previos
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- PHP >= 8.1
+- Composer
+- Node.js >= 16.x
+- NPM o Yarn
+- MySQL >= 5.7
+- Git
 
-## Security Vulnerabilities
+## Instalación
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/Xfirepc/ATC-Blog
+cd ATC-Blog
+```
 
-## License
+2. Instalar dependencias de PHP:
+```bash
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. Instalar dependencias de JavaScript:
+```bash
+npm install
+# o si usas Yarn:
+yarn install
+```
+
+4. Configurar el entorno:
+```bash
+# Copiar el archivo de ejemplo de variables de entorno
+cp .env.example .env
+
+# Generar la clave de la aplicación
+php artisan key:generate
+```
+
+5. Configurar la base de datos:
+   - Crear una base de datos MySQL
+   - Editar el archivo `.env` con las credenciales de tu base de datos:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+```
+
+6. Ejecutar las migraciones y seeders:
+```bash
+php artisan migrate --seed
+```
+
+7. Configurar el almacenamiento:
+```bash
+php artisan storage:link
+```
+
+## Ejecución del Proyecto
+
+1. Iniciar el servidor de Laravel:
+```bash
+php artisan serve
+```
+
+2. En otra terminal, compilar y observar cambios en los assets:
+```bash
+npm run dev
+# o si usas Yarn:
+yarn dev
+```
+
+El proyecto estará disponible en `http://localhost:8000`
+
+## Características Principales
+
+- Autenticación de usuarios
+- Gestión de posts
+- Categorización de contenido
+- Sistema de comentarios
+- Diseño responsive con Tailwind CSS
+- Panel de administración
+- API RESTful
+
+### Usuario de prueba
+```json
+{
+    "email": "test@example.com",
+    "password": "password"
+}
+```
+
+## Estructura del Proyecto
+
+- `/resources/js/` - Componentes Vue.js y lógica frontend
+- `/app/Http/Controllers/` - Controladores Laravel
+- `/routes/` - Definición de rutas (web.php y api.php)
+- `/database/migrations/` - Migraciones de base de datos
+- `/database/seeders/` - Seeders para datos de prueba
