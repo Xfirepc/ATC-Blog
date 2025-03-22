@@ -48,7 +48,7 @@ export default {
       commit('SET_ERROR', null);
       
       try {
-        const response = await axios.get(`/api/v1/categories/${id}`);
+        const response = await axios.get(`/categories/${id}`);
         commit('SET_CURRENT_CATEGORY', response.data.data);
         return response.data.data;
       } catch (error) {
@@ -65,7 +65,7 @@ export default {
       commit('SET_ERROR', null);
       
       try {
-        const response = await axios.post('/api/v1/categories', categoryData);
+        const response = await axios.post('/categories', categoryData);
         await dispatch('fetchCategories');
         return response.data.data;
       } catch (error) {
@@ -81,7 +81,7 @@ export default {
       commit('SET_ERROR', null);
       
       try {
-        const response = await axios.put(`/api/v1/categories/${id}`, data);
+        const response = await axios.put(`/categories/${id}`, data);
         await dispatch('fetchCategories');
         return response.data.data;
       } catch (error) {
@@ -97,7 +97,7 @@ export default {
       commit('SET_ERROR', null);
       
       try {
-        await axios.delete(`/api/v1/categories/${id}`);
+        await axios.delete(`/categories/${id}`);
         await dispatch('fetchCategories');
       } catch (error) {
         commit('SET_ERROR', error.response?.data?.message || 'Error al eliminar la categoría');

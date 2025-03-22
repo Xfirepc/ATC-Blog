@@ -28,6 +28,11 @@ const routes = [
     component: () => import('../views/posts/Index.vue')
   },
   {
+    path: '/posts/:id',
+    name: 'posts.show',
+    component: () => import('../views/posts/Show.vue')
+  },
+  {
     path: '/posts/create',
     name: 'posts.create',
     component: () => import('../views/posts/Create.vue'),
@@ -43,6 +48,11 @@ const routes = [
     path: '/categories',
     name: 'categories',
     component: () => import('../views/categories/Index.vue')
+  },
+  {
+    path: '/categories/:id/posts',
+    name: 'categories.posts',
+    component: () => import('../views/categories/Posts.vue')
   }
 ];
 

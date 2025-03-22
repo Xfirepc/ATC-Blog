@@ -6,6 +6,12 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+// Verificar autenticación al iniciar la aplicación
+const token = localStorage.getItem('token');
+if (token) {
+  store.dispatch('auth/fetchUser');
+}
+
 const app = new Vue({
     router,
     store,

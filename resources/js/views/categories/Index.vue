@@ -40,7 +40,7 @@ export default {
   name: 'CategoriesIndex',
   computed: {
     categories() {
-=      return this.$store.state.categories.items;
+      return this.$store.state.categories.items;
     },
     isLoading() {
       return this.$store.state.categories.loading;

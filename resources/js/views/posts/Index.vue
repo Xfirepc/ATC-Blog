@@ -5,14 +5,14 @@
       <router-link 
         v-if="isAuthenticated" 
         to="/posts/create" 
-        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        class="inline-flex items-center px-4 py-2 text-sm btn btn-success"
       >
         Crear Post
       </router-link>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div v-for="post in posts" :key="post.id" class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div v-for="post in posts.data" :key="post.id" class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-6">
           <h5 class="text-xl font-semibold text-gray-900 mb-2">{{ post.title }}</h5>
           <p class="text-gray-600 mb-4">{{ post.excerpt }}</p>

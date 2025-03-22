@@ -3,7 +3,8 @@ import axios from '../../utils/axios';
 const state = {
   user: null,
   isAuthenticated: false,
-  token: localStorage.getItem('token') || null
+  token: localStorage.getItem('token') || null,
+  loading: false
 };
 
 const mutations = {
@@ -20,11 +21,15 @@ const mutations = {
       state.isAuthenticated = false;
       state.user = null;
     }
+  },
+  SET_LOADING(state, loading) {
+    state.loading = loading;
   }
 };
 
 const actions = {
   async login({ commit }, credentials) {
+    commit('SET_LOADING', true);
     try {
       const response = await axios.post('/login', credentials);
       const { token, user } = response.data.data;
@@ -32,11 +37,16 @@ const actions = {
       commit('SET_USER', user);
       return user;
     } catch (error) {
+      commit('SET_TOKEN', null);
+      commit('SET_USER', null);
       throw error;
+    } finally {
+      commit('SET_LOADING', false);
     }
   },
 
   async register({ commit }, userData) {
+    commit('SET_LOADING', true);
     try {
       const response = await axios.post('/register', userData);
       const { token, user } = response.data.data;
@@ -44,11 +54,16 @@ const actions = {
       commit('SET_USER', user);
       return user;
     } catch (error) {
+      commit('SET_TOKEN', null);
+      commit('SET_USER', null);
       throw error;
+    } finally {
+      commit('SET_LOADING', false);
     }
   },
 
   async logout({ commit }) {
+    commit('SET_LOADING', true);
     try {
       await axios.post('/logout');
     } catch (error) {
@@ -56,10 +71,12 @@ const actions = {
     } finally {
       commit('SET_TOKEN', null);
       commit('SET_USER', null);
+      commit('SET_LOADING', false);
     }
   },
 
   async fetchUser({ commit }) {
+    commit('SET_LOADING', true);
     try {
       const response = await axios.get('/user');
       commit('SET_USER', response.data.data);
@@ -67,13 +84,16 @@ const actions = {
       commit('SET_TOKEN', null);
       commit('SET_USER', null);
       throw error;
+    } finally {
+      commit('SET_LOADING', false);
     }
   }
 };
 
 const getters = {
   isAuthenticated: state => state.isAuthenticated,
-  currentUser: state => state.user
+  currentUser: state => state.user,
+  isLoading: state => state.loading
 };
 
 export default {
