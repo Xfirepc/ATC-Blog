@@ -16,22 +16,27 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Tecnología',
+                'slug' => 'tecnologia',
                 'description' => 'Artículos sobre tecnología y programación'
             ],
             [
                 'name' => 'Ciencia',
+                'slug' => 'ciencia',
                 'description' => 'Artículos sobre ciencia y descubrimientos'
             ],
             [
                 'name' => 'Deportes',
+                'slug' => 'deportes',
                 'description' => 'Artículos sobre deportes y actividad física'
             ],
             [
                 'name' => 'Cultura',
+                'slug' => 'cultura',
                 'description' => 'Artículos sobre cultura y arte'
             ],
             [
                 'name' => 'Vida',
+                'slug' => 'vida',
                 'description' => 'Artículos sobre estilo de vida y bienestar'
             ]
         ];
