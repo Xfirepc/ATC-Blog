@@ -1,8 +1,37 @@
-# Blog Laravel + Vue.js
+# Blog ATC
 
-[Ver Repositorio en GitHub](https://github.com/Xfirepc/ATC-Blog)
+<div align="center">
 
-Este es un proyecto de blog desarrollado con Laravel y Vue.js 2, que incluye funcionalidades como gestión de posts, categorías, comentarios y autenticación de usuarios.
+[![Deploy](https://img.shields.io/badge/Demo-Ver%20Online-2ea44f?style=for-the-badge&logo=vercel&logoColor=white)](https://atc.spidercode.dev/)
+[![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Vue.js](https://img.shields.io/badge/Vue.js-2.7-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+
+</div>
+
+## 🚀 Demo
+
+El proyecto ha sido desplegado en un hosting propio, puede ver una demostración en vivo del proyecto aquí: [https://atc.spidercode.dev/](https://atc.spidercode.dev/)
+
+## 📝 Descripción
+
+Blog moderno construido con Laravel, Vue.js y Tailwind CSS. Incluye sistema de autenticación, gestión de posts y categorías.
+
+## ✨ Características
+
+- 🔐 Autenticación de usuarios
+- 📝 Creación y edición de posts
+- 🏷️ Gestión de categorías
+- 📱 Diseño responsive
+- 🎨 UI moderna con Tailwind CSS
+
+## 🛠️ Tecnologías
+
+- Laravel 10.x - Framework Backend
+- Vue.js 2.7 - Framework Frontend
+- Tailwind CSS - Framework CSS
+- Vite - Build Tool
+- MySQL - Base de datos
 
 ## Habilidades Técnicas
 
@@ -40,7 +69,6 @@ Este es un proyecto de blog desarrollado con Laravel y Vue.js 2, que incluye fun
   - Protección CSRF
   - Validación de entrada
   - Manejo de sesiones seguro
-  - Rate limiting
 
 ### Frontend Development (Vue.js 2)
 - **Gestión de Estado**
@@ -54,31 +82,11 @@ Este es un proyecto de blog desarrollado con Laravel y Vue.js 2, que incluye fun
   - Componentes reutilizables con Options API
   - Props validadas
   - Eventos personalizados
-  - Slots y scoped slots
-  - Mixins para lógica reutilizable
 
 - **Optimización Frontend**
-  - Lazy loading de componentes
   - Caching de datos
   - Manejo de assets con Vite
-  - Optimización de imágenes
   - Code splitting
-
-### UI/UX Design
-- **Diseño Responsive**
-  - Mobile-first approach
-  - Grid system personalizado
-  - Breakpoints estratégicos
-  - Flexbox layouts
-  - CSS Grid
-
-- **Experiencia de Usuario**
-  - Feedback visual inmediato
-  - Estados de carga optimizados
-  - Mensajes de error intuitivos
-  - Animaciones suaves
-  - Navegación fluida
-
 
 
 ## Requisitos Previos
