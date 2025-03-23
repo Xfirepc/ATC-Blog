@@ -53,8 +53,8 @@ export default {
   data() {
     return {
       form: {
-        email: '',
-        password: ''
+        email: 'test@example.com',
+        password: 'password'
       },
       loading: false,
       error: null
